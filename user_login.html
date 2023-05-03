@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LogIn Page</title>
+	<style type=text/css>   
+body   
+{  
+height: 125vh;  
+margin-top: 80px;  
+padding: 30px;  
+background-size: cover;  
+font-family: sans-serif;  
+}  
+header {  
+background-color: orange;  
+position: fixed;  
+left: 0;  
+right: 0;  
+top: 5px;  
+height: 30px;  
+display: flex;  
+align-items: center;  
+box-shadow: 0 0 25px 0 black;  
+}  
+header * {  
+display: inline;  
+}  
+header li {  
+margin: 20px;  
+}  
+header li a {  
+color: blue;  
+text-decoration: none;  
+}   
+body   
+{  
+height: 125vh;  
+margin-top: 80px;  
+padding: 30px;  
+background-size: cover;  
+font-family: sans-serif;  
+}  
+header {  
+background-color: orange;  
+position: fixed;  
+left: 0;  
+right: 0;  
+top: 5px;  
+height: 30px;  
+display: flex;  
+align-items: center;  
+box-shadow: 0 0 25px 0 black;  
+}  
+header * {  
+display: inline;  
+}  
+header li {  
+margin: 20px;  
+}  
+header li a {  
+color: blue;  
+text-decoration: none;  
+}  
+h3{
+color:white;
+}
+label{
+color:white;
+}
+</style>   
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body style="background-color:#6F6E69;">
+	<header>  
+<nav>  
+<ul>  
+<li>  
+<a href="index.html"> Home </a>  
+</li>  
+<li>  
+<a href="aboutus.html"> About </a>  
+</li>  
+<li>  
+<a href="#"> Contact </a>  
+</li>  
+<li> <a href="https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=3159&Mode=0"> Terms of use </a>  
+</li>   
+</ul>  
+</nav>  
+</header>  
+<div class="container">
+	<div class="row">
+		<div style="width: 40%; margin: 25px auto;">
+		<h3 style="text-align: center;">Customer Login</h3>
+		<form method="post" action="user_check.jsp" onsubmit="return validcap()">
+		<div class="form-group">
+				<label>Name:</label><input type="text" id="name" name="name" class="form-control" autofocus placeholder="Enter Username" required>
+			</div>
+			<div class="form-group">
+				<label>Email:</label><input type="email" id="email" name="email" class="form-control" autofocus placeholder="Enter Email" required>
+			</div>
+			<div class="form-group">
+				<label>Mobile Number:</label><input type="text" id="mobile" name="mobile" class="form-control" autofocus placeholder="Enter Mobile" required>
+			</div>
+			<div class="form-group">
+				<label>Password:</label><input type="password" id="password" name="password" class="form-control" autofocus placeholder="Enter Password" required>
+			</div>
+
+      <label>Enter Captcha:</label>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" readonly id="capt">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="textinput" required>
+        </div>
+      </div>
+
+	<div class="form-group">
+				<button type="submit" onclick="validcap()" class="btn btn-lg btn-success btn-block">Login</button>
+			</div>
+		</form>
+    <h6>Refresh for captcha <img src="refresh.jpg" width="40px" onclick="cap()"></h6>
+    <span class="form-error" id="field-error" style="color:#EC1226;"></span>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+function clearError(){
+    errors=document.getElementsByClassName('form-error');
+    for(let item of errors){
+        item.innerHTML="";
+    }    
+}
+  function cap(){
+    var alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+                 ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+                 'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', '!','@','#','$','%','^','&','*','+'];
+                 var a = alpha[Math.floor(Math.random()*71)];
+                 var b = alpha[Math.floor(Math.random()*71)];
+                 var c = alpha[Math.floor(Math.random()*71)];
+                 var d = alpha[Math.floor(Math.random()*71)];
+                 var e = alpha[Math.floor(Math.random()*71)];
+                 var f = alpha[Math.floor(Math.random()*71)];
+
+                 var final = a+b+c+d+e+f;
+                 document.getElementById("capt").value=final;
+               }
+               function validcap(){
+                var stg1 = document.getElementById('capt').value;
+                var stg2 = document.getElementById('textinput').value;
+                if(stg1 != stg2){
+                	document.getElementById("field-error").innerHTML="invalid captcha";
+                	return false;
+                }
+               }
+</script>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</html>

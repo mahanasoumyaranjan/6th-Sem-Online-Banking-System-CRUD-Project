@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="ISO-8859-1">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration</title>
+        <style>
+            body{
+                 background-image: url(contact_us.jpg);
+                 background-repeat: no-repeat;
+                 background-size: 1700px 800px;
+            }
+            #i1{
+                background-color: aqua;
+                width: 300px;
+                border: 15px rgb(16, 37, 175);
+                padding: 50px;
+                margin: 20px;
+                opacity:0.75;
+                margin-left:32%;
+                border-radius: 10px;
+            }
+            #i2{
+                margin-left: 35%;
+            }
+            #i3{
+                margin-left:18%;
+            }
+            #i4{
+                margin-left:37%;
+            }
+            #i5{
+                margin-left:17%;
+            }
+            #mobile{
+                margin-left:37%;
+            }
+            #password{
+                margin-left:37%;
+            }
+            #i8{
+                margin-left:20%;
+            }
+            #i9{
+                margin-left:36%;
+            }
+            .c1{
+                font-size:xx-large;
+                margin-left:30%;
+                background-color: blue;
+             }
+             #x1{
+                margin-left:42%;
+                font-size: xx-large;
+             }
+             a{
+            text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h class="c1">EMPLOYEE REGISTRATION LIST</h>
+        <form action="Saveemployee.jsp" method="post" onsubmit="return validate()" name="myform">
+            <div id="i1">
+                <label>NAME:</label>
+                <input type="text" name="name" id="i3" placeholder="Enter Employee name"><br><br>
+                <label>USER ID:</label>
+                <input type="text" name="email" id="i5" placeholder="Enter Employee email"><br><br>
+                <label>MOBILE NO:</label>
+                <input type="text" name="mobile" id="mobile" placeholder="Enter mobile number"><br><br>
+                <label>PASSWORD:</label>
+                <input type="password" name="password" id="password" placeholder="Enter password"><br><br>
+                <label>D.O.B:</label>
+                <input type="date" name="dob" id="i8" placeholder="Enter date of birth"><br><br>
+                <label>ADDRESS:</label>
+                <input type="text" name="address" id="i9" placeholder="Enter Address"><br><br>
+                <label>GENDER:</label>
+                <input type="radio" name="GENDER" id="gender" value="Male">
+                <label for="Male">Male</label>
+                <input type="radio" name="GENDER" value="Female" id="gender">
+                <label for="Female">Female</label>
+                <input type="radio" name="GENDER" value="Othes" id="gend">
+                <label for="Others">Others</label>
+                <br><br>
+                <label>EMPLOYEE TYPE:</label>
+                <select id="op" name="op">
+                    <option value="manager">MANAGER</option>
+                    <option value="cashier">CASHIER</option>
+                    <option value="accountant">ACCOUNTANT</option>
+                </select>
+                <br>
+                <br>
+                <center><span class="form-error" id="field-error" style="color:red"></span><br></center>
+                <div id="i2">
+                    <button type="submit">Register</button>
+                </div>
+            </div>
+        </form>
+        <script src="Emp.js"></script>
+        <a href="Admin.jsp" id="x1">Go Back</a>
+    </body>
+</html>
